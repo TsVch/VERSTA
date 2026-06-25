@@ -1,0 +1,270 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 222 47% 6%;
+  --foreground: 180 100% 90%;
+  --border: 195 100% 20%;
+  --input: 195 100% 15%;
+  --ring: 180 100% 50%;
+  --card: 222 47% 9%;
+  --card-foreground: 180 100% 90%;
+  --primary: 180 100% 50%;
+  --primary-foreground: 222 47% 6%;
+  --secondary: 260 80% 55%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 222 30% 15%;
+  --muted-foreground: 180 30% 60%;
+  --accent: 120 100% 50%;
+  --accent-foreground: 222 47% 6%;
+  --destructive: 0 100% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --app-font-sans: 'Inter', 'Segoe UI', sans-serif;
+  --app-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background: radial-gradient(ellipse at top, hsl(222 47% 10%) 0%, hsl(222 47% 4%) 100%);
+    min-height: 100vh;
+  }
+}
+
+/* Neon glow effects */
+.neon-cyan { 
+  color: hsl(180 100% 55%);
+  text-shadow: 0 0 8px hsl(180 100% 55%), 0 0 20px hsl(180 100% 40%);
+}
+.neon-green {
+  color: hsl(120 100% 50%);
+  text-shadow: 0 0 8px hsl(120 100% 50%), 0 0 20px hsl(120 100% 35%);
+}
+.neon-purple {
+  color: hsl(280 100% 70%);
+  text-shadow: 0 0 8px hsl(280 100% 70%), 0 0 20px hsl(280 100% 55%);
+}
+.neon-red {
+  color: hsl(0 100% 60%);
+  text-shadow: 0 0 8px hsl(0 100% 60%), 0 0 20px hsl(0 100% 45%);
+}
+.neon-yellow {
+  color: hsl(55 100% 55%);
+  text-shadow: 0 0 8px hsl(55 100% 55%), 0 0 20px hsl(55 100% 40%);
+}
+
+.card-neon {
+  background: hsl(222 47% 9%);
+  border: 1px solid hsl(195 100% 20%);
+  box-shadow: 0 0 15px hsl(180 100% 50% / 0.08), inset 0 1px 0 hsl(180 100% 50% / 0.1);
+  border-radius: var(--radius);
+}
+
+.card-neon-highlight {
+  background: hsl(222 47% 11%);
+  border: 1px solid hsl(180 100% 50% / 0.4);
+  box-shadow: 0 0 20px hsl(180 100% 50% / 0.15), inset 0 1px 0 hsl(180 100% 50% / 0.15);
+  border-radius: var(--radius);
+}
+
+.btn-neon-green {
+  background: linear-gradient(135deg, hsl(120 80% 20%) 0%, hsl(120 80% 15%) 100%);
+  border: 1px solid hsl(120 100% 40%);
+  color: hsl(120 100% 65%);
+  box-shadow: 0 0 12px hsl(120 100% 40% / 0.3);
+  transition: all 0.2s ease;
+}
+.btn-neon-green:hover {
+  box-shadow: 0 0 20px hsl(120 100% 40% / 0.5);
+  background: linear-gradient(135deg, hsl(120 80% 25%) 0%, hsl(120 80% 20%) 100%);
+}
+
+.btn-neon-red {
+  background: linear-gradient(135deg, hsl(0 80% 20%) 0%, hsl(0 80% 15%) 100%);
+  border: 1px solid hsl(0 100% 45%);
+  color: hsl(0 100% 65%);
+  box-shadow: 0 0 12px hsl(0 100% 45% / 0.3);
+  transition: all 0.2s ease;
+}
+.btn-neon-red:hover {
+  box-shadow: 0 0 20px hsl(0 100% 45% / 0.5);
+  background: linear-gradient(135deg, hsl(0 80% 25%) 0%, hsl(0 80% 20%) 100%);
+}
+
+.btn-neon-cyan {
+  background: linear-gradient(135deg, hsl(180 80% 15%) 0%, hsl(180 80% 10%) 100%);
+  border: 1px solid hsl(180 100% 40%);
+  color: hsl(180 100% 65%);
+  box-shadow: 0 0 12px hsl(180 100% 40% / 0.3);
+  transition: all 0.2s ease;
+}
+.btn-neon-cyan:hover {
+  box-shadow: 0 0 20px hsl(180 100% 40% / 0.5);
+}
+
+.btn-neon-yellow {
+  background: linear-gradient(135deg, hsl(55 80% 18%) 0%, hsl(55 80% 12%) 100%);
+  border: 1px solid hsl(55 100% 45%);
+  color: hsl(55 100% 65%);
+  box-shadow: 0 0 12px hsl(55 100% 45% / 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-neon-purple {
+  background: linear-gradient(135deg, hsl(270 80% 20%) 0%, hsl(270 80% 14%) 100%);
+  border: 1px solid hsl(270 100% 55%);
+  color: hsl(270 100% 75%);
+  box-shadow: 0 0 12px hsl(270 100% 55% / 0.3);
+  transition: all 0.2s ease;
+}
+.btn-neon-purple:hover {
+  box-shadow: 0 0 20px hsl(270 100% 55% / 0.5);
+}
+
+.tariff-btn {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1px solid hsl(195 100% 18%);
+  background: hsl(222 47% 8%);
+  color: hsl(180 30% 55%);
+  text-align: center;
+}
+.tariff-btn.active-economy {
+  border-color: hsl(120 100% 40%);
+  color: hsl(120 100% 60%);
+  background: hsl(120 80% 10%);
+  box-shadow: 0 0 14px hsl(120 100% 40% / 0.25);
+}
+.tariff-btn.active-comfort {
+  border-color: hsl(180 100% 40%);
+  color: hsl(180 100% 60%);
+  background: hsl(180 80% 10%);
+  box-shadow: 0 0 14px hsl(180 100% 40% / 0.25);
+}
+.tariff-btn.active-business {
+  border-color: hsl(270 100% 55%);
+  color: hsl(270 100% 72%);
+  background: hsl(270 80% 12%);
+  box-shadow: 0 0 14px hsl(270 100% 55% / 0.25);
+}
+.tariff-btn.active-comfort_plus {
+  border-color: hsl(200 100% 45%);
+  color: hsl(200 100% 68%);
+  background: hsl(200 80% 11%);
+  box-shadow: 0 0 14px hsl(200 100% 45% / 0.25);
+}
+.tariff-btn.active-minivan_premium {
+  border-color: hsl(35 100% 50%);
+  color: hsl(35 100% 68%);
+  background: hsl(35 80% 11%);
+  box-shadow: 0 0 14px hsl(35 100% 50% / 0.25);
+}
+
+.price-display {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  font-family: var(--app-font-mono);
+  letter-spacing: -0.02em;
+}
+
+.log-container {
+  max-height: 180px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(180 100% 25%) transparent;
+}
+
+.log-container::-webkit-scrollbar { width: 4px; }
+.log-container::-webkit-scrollbar-track { background: transparent; }
+.log-container::-webkit-scrollbar-thumb { background: hsl(180 100% 25%); border-radius: 2px; }
+
+/* Leaflet dark theme override */
+.leaflet-container {
+  background: hsl(222 47% 6%) !important;
+}
+.leaflet-tile-pane { filter: brightness(0.75) saturate(0.8) hue-rotate(180deg); }
+.leaflet-control-zoom a { 
+  background: hsl(222 47% 12%) !important; 
+  color: hsl(180 100% 55%) !important;
+  border-color: hsl(195 100% 20%) !important;
+}
+
+/* Pulse animation for active GPS */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+.gps-dot-active { animation: pulse-dot 1.5s ease-in-out infinite; }
+
+/* Counter tick animation */
+@keyframes tick {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+.price-tick { animation: tick 1s ease-in-out infinite; }
+
+.section-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(180 30% 45%);
+  font-weight: 600;
+}
+
+input[type="number"] {
+  background: hsl(222 47% 7%);
+  border: 1px solid hsl(195 100% 18%);
+  border-radius: 4px;
+  color: hsl(180 100% 80%);
+  padding: 4px 6px;
+  font-size: 0.8rem;
+  width: 100%;
+  outline: none;
+}
+input[type="number"]:focus {
+  border-color: hsl(180 100% 40%);
+  box-shadow: 0 0 8px hsl(180 100% 40% / 0.2);
+}
+
+/* PWA: ensure safe areas on mobile */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
