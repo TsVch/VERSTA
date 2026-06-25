@@ -13,7 +13,7 @@
     "pg": "^8.16.3"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.7",
+    "@types/bcryptjs": "^3.0.0",
     "@types/node": "catalog:",
     "@types/pg": "^8.15.4",
     "tsx": "catalog:"
