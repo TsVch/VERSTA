@@ -22,6 +22,9 @@ const isDev = process.env.NODE_ENV === "development";
 
 const app: Express = express();
 
+// Trust Replit's reverse proxy so rate-limit and secure cookies work correctly
+app.set("trust proxy", 1);
+
 app.use(
   helmet({
     crossOriginEmbedderPolicy: false,
